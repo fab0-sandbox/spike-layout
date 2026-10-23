@@ -62,7 +62,7 @@ const FIELDS: { name: string; type: "SINGLE_SELECT" | "NUMBER" | "TEXT"; options
   { name: "Waiting on", type: "TEXT" },
   { name: "Session", type: "TEXT" },
   { name: "Runner", type: "SINGLE_SELECT", options: [opt("cloud", "BLUE"), opt("laptop", "GREEN")] },
-  { name: "Flow", type: "SINGLE_SELECT", options: [opt("coding", "BLUE")] },
+  { name: "Flow", type: "SINGLE_SELECT", options: [opt("coding", "BLUE"), opt("prototypes", "PINK")] },
 ];
 
 const FIELDS_FRAGMENT = `
@@ -243,8 +243,13 @@ async function item(nodeId: string, label: string, values: Record<string, string
   }
   const current: Record<string, unknown> = {};
   for (const v of it.fieldValues.nodes) if (v.field) current[v.field.name] = v.text ?? v.number ?? v.name;
+  // Item values are the example's starting state, not layout: fill a field only
+  // while it is empty, so a value a person set (Stage, for a via: field approval) stays.
   for (const [name, want] of Object.entries(values)) {
-    if (current[name] === want) continue;
+    if (current[name] !== undefined) {
+      if (current[name] !== want) console.log(`kept   ${label}: ${name} = ${current[name]} (example: ${want})`);
+      continue;
+    }
     const f = fields[name];
     let value: Record<string, unknown>;
     if (f.dataType === "NUMBER") value = { number: want };
@@ -262,7 +267,7 @@ async function item(nodeId: string, label: string, values: Record<string, string
       ),
     );
   }
-  if (Object.entries(values).every(([k, v]) => current[k] === v)) ok(`${label} fields`);
+  if (Object.keys(values).every((k) => current[k] !== undefined)) ok(`${label} fields`);
 }
 
 await item(story.node_id, `factory#${story.number}`, { Stage: "Running", Run: RUN, Flow: "coding" });
