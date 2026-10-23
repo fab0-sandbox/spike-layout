@@ -1,0 +1,17 @@
+{
+  "name": "spike-layout",
+  "private": true,
+  "type": "module",
+  "description": "A.3 layout spike: builds the fab0 rebuild's worked example layout in fab0-sandbox as the fab0 App",
+  "scripts": {
+    "layout": "bun layout.ts",
+    "checks": "bun checks.ts"
+  },
+  "dependencies": {
+    "octokit": "5.0.5"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.4",
+    "typescript": "5.9.3"
+  }
+}
