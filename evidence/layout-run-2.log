@@ -1,0 +1,33 @@
+ok     issue type Story (915070419)
+ok     issue type Requirement (915070453)
+ok     issue type Task (914376331)
+ok     project #1 fab0 sandbox factory
+ok     project linked to factory
+ok     field Stage (12 options)
+ok     field Run
+ok     field Revision
+ok     field Duration
+ok     field Tokens
+ok     field Cost
+ok     field Step
+ok     field Waiting on
+ok     field Session
+ok     field Runner (2 options)
+ok     field Flow (1 options)
+ok     issue factory#1 Sandbox Story: per-user rate limits
+ok     issue factory#2 Requirement: per-user rate limits
+ok     factory#2 is a sub-issue of factory#1
+ok     pr backend#1 from fab0/1/backend-spec (draft: true)
+ok     factory#1 on the project
+ok     factory#1 fields
+ok     factory#2 on the project
+ok     factory#2 fields
+ok     backend#1 on the project
+ok     backend#1 fields
+ok     view Run 1 (TABLE_LAYOUT)
+ok     view Stages (BOARD_LAYOUT)
+
+project: https://github.com/orgs/fab0-sandbox/projects/1
+story:   https://github.com/fab0-sandbox/factory/issues/1
+pr:      https://github.com/fab0-sandbox/backend/pull/1
+writes:  0

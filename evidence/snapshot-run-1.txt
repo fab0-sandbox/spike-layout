@@ -1,0 +1,23 @@
+{
+  "rateLimit": {
+    "cost": 7,
+    "remaining": 4918,
+    "limit": 5000,
+    "resetAt": "2026-10-23T08:31:51Z"
+  },
+  "root": 1,
+  "subIssues": 1,
+  "prs": [
+    "https://github.com/fab0-sandbox/backend/pull/1"
+  ]
+}
+{
+  "byRunField": {
+    "cost": 9,
+    "items": [
+      "factory#1",
+      "factory#2",
+      "backend#1"
+    ]
+  }
+}

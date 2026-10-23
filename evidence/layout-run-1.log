@@ -1,0 +1,55 @@
+write  issue type Story
+write  issue type Requirement
+ok     issue type Task (914376331)
+write  project fab0 sandbox factory
+write  link project to factory
+write  field Stage (SINGLE_SELECT, 12 options)
+write  field Run (NUMBER)
+write  field Revision (NUMBER)
+write  field Duration (NUMBER)
+write  field Tokens (NUMBER)
+write  field Cost (NUMBER)
+write  field Step (TEXT)
+write  field Waiting on (TEXT)
+write  field Session (TEXT)
+write  field Runner (SINGLE_SELECT, 2 options)
+write  field Flow (SINGLE_SELECT, 1 options)
+write  issue Story: Sandbox Story: per-user rate limits
+[@octokit/request] "POST https://api.github.com/repos/fab0-sandbox/factory/issues" is deprecated. It is scheduled to be removed on Fri, 10 Mar 2028 00:00:00 GMT. See https://docs.github.com/en/rest/about-the-rest-api/api-versions
+write  issue Requirement: Requirement: per-user rate limits
+[@octokit/request] "POST https://api.github.com/repos/fab0-sandbox/factory/issues" is deprecated. It is scheduled to be removed on Fri, 10 Mar 2028 00:00:00 GMT. See https://docs.github.com/en/rest/about-the-rest-api/api-versions
+write  sub-issue factory#2 under factory#1
+write  empty commit on main's tree
+write  branch fab0/1/backend-spec
+write  draft pr from fab0/1/backend-spec (49ec6e1)
+write  add factory#1 to the project
+write  factory#1: Stage = Running
+write  factory#1: Run = 1
+write  factory#1: Flow = coding
+ok     factory#2 on the project
+write  factory#2: Stage = In review
+write  factory#2: Run = 1
+write  factory#2: Step = requirement
+write  factory#2: Revision = 1
+write  factory#2: Runner = cloud
+write  factory#2: Waiting on = po
+write  factory#2: Duration = 312
+write  factory#2: Tokens = 48210
+write  factory#2: Cost = 0.41
+write  factory#2: Flow = coding
+write  add backend#1 to the project
+write  backend#1: Stage = Running
+write  backend#1: Run = 1
+write  backend#1: Step = backend-spec
+write  backend#1: Revision = 1
+write  backend#1: Runner = cloud
+write  backend#1: Session = https://claude.ai/code/session_spike
+write  backend#1: Flow = coding
+write  view Run 1 (TABLE_LAYOUT)
+write  view Run 1: filter "run:1"
+write  view Stages (BOARD_LAYOUT)
+
+project: https://github.com/orgs/fab0-sandbox/projects/1
+story:   https://github.com/fab0-sandbox/factory/issues/1
+pr:      https://github.com/fab0-sandbox/backend/pull/1
+writes:  46
